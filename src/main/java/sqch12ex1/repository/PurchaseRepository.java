@@ -1,3 +1,4 @@
+package sqch12ex1.repository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,6 @@ public class PurchaseRepository {
 
 	public void storePurchase(Purchase purchase) {
 		jdbcTemplate.update("insert into purchase(null, ?, ?)",
-				purchase.getProduct(), purchase.getPrice());
+				purchase.get)
 	}
 }
