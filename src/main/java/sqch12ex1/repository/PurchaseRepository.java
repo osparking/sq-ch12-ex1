@@ -1,11 +1,13 @@
 package sqch12ex1.repository;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import lombok.AllArgsConstructor;
+import space.jbpark.utility.MyUtil;
 import sqch12ex1.model.Purchase;
 
 @Repository
@@ -13,6 +15,7 @@ import sqch12ex1.model.Purchase;
 public class PurchaseRepository {
 
 	private final JdbcTemplate jdbcTemplate;
+	private final Logger logger = MyUtil.getLogger(PurchaseRepository.class.getName());
 
 	public void storePurchase(Purchase purchase) {
 		jdbcTemplate.update("insert into purchase values (null, ?, ?)",
@@ -27,7 +30,7 @@ public class PurchaseRepository {
 			purchase.setId(r.getInt("id"));
 			purchase.setProduct(r.getString("product"));
 			purchase.setPrice(r.getBigDecimal("price"));
-			System.out.println("행 번호: " + i);
+			logger.info("행 번호: " + i);
 			return purchase;
 		};
 
