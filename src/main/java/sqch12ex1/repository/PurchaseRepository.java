@@ -15,7 +15,7 @@ public class PurchaseRepository {
 	private final JdbcTemplate jdbcTemplate;
 
 	public void storePurchase(Purchase purchase) {
-		jdbcTemplate.update("insert into purchase(null, ?, ?)",
+		jdbcTemplate.update("insert into purchase values (null, ?, ?)",
 				purchase.getProduct(), purchase.getPrice());
 	}
 
