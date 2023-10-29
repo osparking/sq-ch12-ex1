@@ -6,11 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.AllArgsConstructor;
 import sqch12ex1.model.Purchase;
 import sqch12ex1.repository.PurchaseRepository;
 
 @RestController
 @RequestMapping("/purchase")
+@AllArgsConstructor
 public class PurchaseController {
 	
 	private PurchaseRepository repository;
